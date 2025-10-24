@@ -56,6 +56,7 @@ function App() {
     const handleUpdateDownloaded = (_event: any, info: UpdateInfo) => {
       setIsDownloading(false);
       setUpdateDownloaded(true);
+      console.log("Update downloaded:", info);
     };
 
     const handleUpdateError = (_event: any, error: Error) => {
@@ -145,7 +146,7 @@ function App() {
               />
             </svg>
           </div>
-          <h1>toe</h1>
+          <h1>GDG - toe</h1>
           <p className="version">Version 1.0.0</p>
         </div>
 
