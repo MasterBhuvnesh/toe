@@ -37,10 +37,12 @@ function App() {
 
     const handleUpdateAvailable = (_event: any, info: UpdateInfo) => {
       setUpdateInfo(info);
+      setUpdateStatus("");
       setIsChecking(false);
     };
 
     const handleUpdateNotAvailable = () => {
+      setUpdateInfo(null);
       setIsChecking(false);
       setUpdateStatus("up-to-date");
       setTimeout(() => setUpdateStatus(""), 3000);
@@ -59,8 +61,10 @@ function App() {
       console.log("Update downloaded:", info);
     };
 
-    const handleUpdateError = (_event: any, error: Error) => {
-      console.error("Update error:", error);
+    const handleUpdateError = (_event: any, error: any) => {
+      console.error("Update error:", error?.message || error);
+      if (updateDownloaded) return; // 👈 prevent showing error after successful download
+      setUpdateInfo(null);
       setIsDownloading(false);
       setIsChecking(false);
       setUpdateStatus("error");
@@ -147,7 +151,8 @@ function App() {
             </svg>
           </div>
           <h1>GDG - toe</h1>
-          <p className="version">Version 1.1.1 -by BHUVNESH VERMA</p>
+          <h1> testing 333</h1>
+          <p className="version">BHUVNESH VERMA</p>
         </div>
 
         <div className="content">

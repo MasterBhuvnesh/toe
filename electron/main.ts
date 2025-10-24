@@ -57,8 +57,10 @@ autoUpdater.on("update-not-available", (info) => {
 });
 
 autoUpdater.on("error", (err) => {
-  console.error("Update error:", err);
-  mainWindow?.webContents.send("update-error", err);
+  console.error("⚠️ AutoUpdater error:", err?.message || err);
+  mainWindow?.webContents.send("update-error", {
+    message: err?.message || String(err),
+  });
 });
 
 autoUpdater.on("download-progress", (progressObj) => {
@@ -69,8 +71,10 @@ autoUpdater.on("download-progress", (progressObj) => {
 });
 
 autoUpdater.on("update-downloaded", (info) => {
-  console.log("Update downloaded");
+  console.log("✅ Update downloaded, ready to install.");
   mainWindow?.webContents.send("update-downloaded", info);
+  // optional: auto-install immediately
+  // autoUpdater.quitAndInstall();
 });
 
 // IPC handlers for renderer process
