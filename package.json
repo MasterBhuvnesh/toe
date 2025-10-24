@@ -1,8 +1,9 @@
 {
   "name": "toe",
   "private": true,
-  "version": "3.3.4",
+  "version": "3.3.5",
   "type": "module",
+  "repository": "https://github.com/MasterBhuvnesh/toe",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build && electron-builder",
@@ -11,7 +12,8 @@
   },
   "dependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "electron-updater": "^6.6.2"
   },
   "devDependencies": {
     "@types/react": "^18.2.64",
@@ -21,7 +23,6 @@
     "@vitejs/plugin-react": "^4.2.1",
     "electron": "^30.0.1",
     "electron-builder": "^24.13.3",
-    "electron-updater": "^6.6.2",
     "eslint": "^8.57.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
@@ -78,13 +79,8 @@
       "category": "Utility",
       "icon": "public/icon.png"
     },
-    "publish": [
-      {
-        "provider": "github",
-        "owner": "MasterBhuvnesh",
-        "repo": "toe",
-        "releaseType": "release"
-      }
-    ]
+    "publish": {
+      "provider": "github"
+    }
   }
 }
