@@ -147,7 +147,7 @@ function App() {
             </svg>
           </div>
           <h1>GDG - toe</h1>
-          <p className="version">Version 1.0.0</p>
+          <p className="version">Version 1.1.1 -by BHUVNESH VERMA</p>
         </div>
 
         <div className="content">
